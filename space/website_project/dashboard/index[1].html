@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML Model Data Visualization</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Predicted vs Actual Flux Values</h2>
+    <canvas id="fluxChart"></canvas>
+  </div>
+
+  <script>
+    // Load data from the exported JSON file
+    fetch('model_output.json')
+      .then(response => response.json())
+      .then(data => {
+        const ctx = document.getElementById('fluxChart').getContext('2d');
+        const fluxChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: Array.from({length: data.y_test.length}, (_, i) => i + 1), // X-axis: Time steps
+            datasets: [
+              {
+                label: 'Actual Flux',
+                data: data.y_test,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false
+              },
+              {
+                label: 'Predicted Flux',
+                data: data.predictions,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: 'Predicted vs Actual Flux'
+            },
+            scales: {
+              x: { title: { display: true, text: 'Time Steps' } },
+              y: { title: { display: true, text: 'Flux Values' } }
+            }
+          }
+        });
+      });
+  </script>
+</body>
+</html>

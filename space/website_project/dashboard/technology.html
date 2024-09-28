@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Technology - Space Weather AI</title>
+    <style>
+        /* Global Styles */
+        body {
+            background: #0b0f1f;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background: #121d3b;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 0.5rem;
+            text-align: center;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .tech-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Two-column layout for image and content */
+        .image-content-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 2rem;
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+
+        .image-content-section img {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-box {
+            width: 50%;
+            padding-left: 2rem;
+        }
+
+        .content-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .content-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Box styles for Technology content */
+        .box {
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.4);
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .box ul, .box ol {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+
+        .box p, .box li {
+            margin: 0.5rem 0;
+        }
+
+        /* Flowchart section */
+        .flowchart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .flow-step {
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.4);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .flow-step:hover {
+            transform: scale(1.05);
+        }
+
+        .arrow {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: #4fc3f7;
+        }
+
+        /* Back Button Style */
+        .back-button {
+            display: inline-block;
+            background-color: #4fc3f7;
+            color: #0b0f1f;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            border-radius: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #39b1dc;
+        }
+
+        /* Footer */
+        footer {
+            background: #121d3b;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .image-content-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-content-section img,
+            .content-box {
+                width: 100%;
+                padding: 0;
+            }
+
+            .content-box {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Space Weather AI</h1>
+            </div>
+        </nav>
+    </header>
+
+    <!-- New Section with Image and Content Side by Side -->
+    <section class="image-content-section">
+        <img src="goes-r-padded-withearthreflectioninsolarpanel[1].webp" alt="Solar activity image">
+        <div class="content-box">
+            <h3>NOAA's Solar Activity Data API (GOES Satellite):</h3>
+            <p>The GOES satellite monitors the 10.7 cm solar radio flux, a key measure of solar activity. This flux is associated with emissions from the sun’s outer atmosphere and helps in understanding solar energy output variations.</p>
+        </div>
+    </section>
+
+    <section id="technology" class="section">
+        <h2>Our Technology</h2>
+        <div class="tech-content">
+
+            <!-- Data Collection Box -->
+            <div class="box">
+                <h3>Data Collection</h3>
+                <p>We gather real-time solar activity data from two primary sources:</p>
+                <ul>
+                    <li><strong>NOAA's Solar Activity Data API:</strong> Provides real-time measurements of solar flux, a key indicator of solar activity.</li>
+                    <li><strong>NASA's HelioViewer API:</strong> Accesses high-quality solar images and related metadata, enriching our dataset.</li>
+                </ul>
+            </div>
+
+            <!-- Machine Learning Box -->
+            <div class="box">
+                <h3>Machine Learning</h3>
+                <p>Our model leverages LSTM (Long Short-Term Memory) networks, a specialized type of Recurrent Neural Network (RNN) designed to handle time-series data. LSTMs are well suited for predicting future solar activity based on historical patterns.</p>
+            </div>
+
+            <!-- Model Training Box -->
+            <div class="box">
+                <h3>Model Training</h3>
+                <p>We ensure the model performs effectively through a rigorous data preprocessing pipeline:</p>
+                <ol>
+                    <li>Standardize solar flux data for consistency.</li>
+                    <li>Segment the time-series data into sequences.</li>
+                    <li>Train the model using past solar flux data, enabling it to learn flux variations over time.</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <!-- Prediction Pipeline -->
+        <h3>The Prediction Pipeline</h3>
+        <div class="flowchart">
+            <div class="flow-step">Data Collection<br>NOAA + NASA</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">Data Preprocessing<br>Scaling, Sequence Creation</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">Model Training<br>LSTM Learns Patterns</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">Prediction<br>Forecasting Solar Flux</div>
+            <div class="arrow">→</div>
+            <div class="flow-step">Output<br>Real-Time Predictions</div>
+        </div>
+
+        <p style="text-align:center">We visualize and output easy-to-understand predictions.</p>
+
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="/website_project/index.html" class="back-button">Back</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Space Weather AI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

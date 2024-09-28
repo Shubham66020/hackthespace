@@ -1,0 +1,204 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('space\ image1.jpg') no-repeat center center fixed ;  /* Add your background image */
+    background-size: cover; /* Ensures the image covers the entire page */
+    color: #333;
+    line-height: 1.6;
+   
+    
+}
+
+header {
+    background-color: #003366; /* Solid dark blue */
+    padding: 15px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+.widget {
+    background-color: rgba(255, 255, 255, 0.4); /* Transparent white for background */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: #003366; /* Dark text for contrast */
+}
+
+.widget:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+    color: #003366; /* Darker shade for headings */
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+}
+
+.current-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1.2rem;
+    color: #003366; /* Ensure text inside is dark for visibility */
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stat-box {
+    background-color: rgba(224, 247, 250, 0.8); /* Light transparent color */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    color: #003366; /* Dark text for good contrast */
+}
+
+.stat-box h3 {
+    font-size: 1.3rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Chart-specific styling */
+canvas {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for better chart visibility */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .widget {
+        width: 100%;
+    }
+}
+
+/* Add these keyframes for animations */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to all widgets */
+.widget {
+    background-color: rgba(255, 255, 255, 0.4); /* Transparent white for background */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: #003366; /* Dark text for contrast */
+    opacity: 0; /* Start hidden */
+    transform: translateY(50px); /* Start slightly lower */
+    animation: fadeInSlideUp 1s ease forwards; /* Fade in and slide up */
+}
+
+/* Delay the animations for a line-by-line effect */
+#currentWeather {
+    animation-delay: 0.2s;
+}
+#forecast {
+    animation-delay: 0.4s;
+}
+#alerts {
+    animation-delay: 0.6s;
+}
+#satelliteStatus {
+    animation-delay: 0.8s;
+}
+#predictions {
+    animation-delay: 1s;
+}
+#historicalData {
+    animation-delay: 1.2s;
+}
+#stats {
+    animation-delay: 1.4s;
+}
+
+/* Ensure the hover effect is still smooth */
+.widget:hover {
+    transform: scale(1.02);
+}
+
+/* Other existing styles */
+
+
+

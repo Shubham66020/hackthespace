@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Activity Prediction Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            max-width: 800px;
+            margin: 50px auto;
+            display: block;
+        }
+
+        h1 {
+            color: #fff;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Solar Activity Prediction</h1>
+    <canvas id="solarChart"></canvas>
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Fetch the JSON file and render the chart
+        fetch('solar_activity_predictions.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data fetched:', data); // Check if data is correct
+
+                // Ensure the expected data structure is available
+                if (!data.actual_values || !data.predicted_values) {
+                    throw new Error('Data format error: missing actual_values or predicted_values');
+                }
+
+                // Extract actual and predicted values
+                const actualValues = data.actual_values;
+                const predictedValues = data.predicted_values;
+
+                // Generate time labels (assuming it's just an index for now)
+                const labels = actualValues.map((_, index) => `Time ${index}`);
+
+                // Create the chart
+                const ctx = document.getElementById('solarChart').getContext('2d');
+                const solarChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Actual Solar Activity',
+                                data: actualValues,
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                fill: true,
+                            },
+                            {
+                                label: 'Predicted Solar Activity',
+                                data: predictedValues,
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                fill: true,
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Time'
+                                }
+                            },
+                            y: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Solar Activity'
+                                }
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Actual vs Predicted Solar Activity'
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON file:', error);
+                alert('Failed to load the data. Please try again later.');
+            });
+    </script>
+</body>
+
+</html>

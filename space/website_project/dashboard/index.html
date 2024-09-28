@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Driven Space Weather Forecast Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>Space Weather AI</h1>
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li> <!-- Link to the main website -->
+            <li><a href="plots.html">Plots</a></li> <!-- Link to plots page -->
+        <li><a href="#forecast">Forecast</a></li>
+        <li><a href="#alerts">Alerts</a></li>
+        <li><a href="#satelliteStatus">Satellite Status</a></li>
+        <li><a href="#historicalData">Historical Data</a></li>
+       
+        
+      </ul>
+    </nav>
+    
+  </header>
+  
+ <b>
+
+ 
+  <main>
+    <section id="currentWeather" class="widget" aria-label="Current Space Weather">
+      <h2>Current Space Weather</h2>
+      <p id="spaceWeatherStatus">Fetching latest data...</p>
+      <div class="current-details">
+        <div><span>Solar Flare Activity:</span> Moderate</div>
+        <div><span>Geomagnetic Storm:</span> Active</div>
+        <div><span>Solar Wind Speed:</span> 550 km/s</div>
+        <div><span>Magnetosphere Status:</span> Stable</div>
+      </div>
+    </section>
+
+    <section id="forecast" class="widget" aria-label="Solar Flare & Geomagnetic Forecast">
+      <h2>Solar Flare & Geomagnetic Forecast</h2>
+      <canvas id="flareChart" aria-label="Line chart showing solar flare activity"></canvas>
+    </section>
+
+    <section id="alerts" class="widget" aria-label="Real-Time Alerts & Notifications">
+      <h2>Real-Time Alerts & Notifications</h2>
+      <p id="stormAlert">No active alerts at this time</p>
+      <ul id="alertList">
+        <li>⚠️ Geomagnetic Storm Warning (Kp Index: 7) - Expected in 12 hours</li>
+      </ul>
+    </section>
+
+    <section id="satelliteStatus" class="widget" aria-label="Satellite Status & Risk Assessment">
+      <h2>Satellite Status & Risk Assessment</h2>
+      <div class="sat-status">
+        <p id="satelliteStatus">Operational: <span>78%</span></p>
+        <p id="satRiskLevel">Satellites at Risk: <span>8</span></p>
+        <p id="powerGridImpact">Power Grid Risk Level: <span>Moderate</span></p>
+      </div>
+    </section>
+
+    <section id="predictions" class="widget" aria-label="AI/ML Space Weather Predictions">
+      <h2>AI/ML Space Weather Predictions</h2>
+      <p id="predictionInfo">AI predicts increased solar activity in the next 48 hours. Potential satellite disruption expected.</p>
+    </section>
+
+    <section id="historicalData" class="widget" aria-label="Historical Space Weather Trends">
+      <h2>Historical Space Weather Trends</h2>
+      <canvas id="historicalChart" aria-label="Bar chart of geomagnetic storms over years"></canvas>
+    </section>
+
+    <section id="stats" class="widget" aria-label="Global Impact Statistics">
+      <h2>Global Impact Statistics</h2>
+      <div class="stats-container">
+        <div class="stat-box">
+          <h3>Satellites at Risk</h3>
+          <p id="satRisk">8</p>
+        </div>
+        <div class="stat-box">
+          <h3>Power Grid Risk</h3>
+          <p id="gridRisk">Moderate</p>
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 AI-Driven Space Weather Forecast | Powered by AI/ML Models</p>
+  </footer>
+</body>
+</html>
