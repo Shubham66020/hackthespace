@@ -73,7 +73,7 @@ The model has demonstrated XX% accuracy in predicting solar flux, based on histo
 
 You can refer to the below plot for an example of the actual vs. predicted solar flux values:
 
-![Actual vs Predicted Solar Flux](path_to_your_plot.png) 
+![Actual vs Predicted Solar Flux](predicted_vs_actual_scatter.png) 
 
 The orange area represents the predicted values, while the blue line indicates the actual observed flux. As seen, the model follows real-time patterns with impressive accuracy, making it an effective forecasting tool for solar activity.
 
